@@ -2,18 +2,24 @@ version: '3.8'
 services:
   db:
     image: postgres
+    container_name: ffdDB
+    restart: always
     environment:
       POSTGRES_DB: ffd
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
-    ports:
-      - "5555:5432"
     volumes:
       - db-data:/var/lib/postgresql/data
+    ports:
+      - "5555:5432"
+    networks:
+      - ffd-net
+
   app:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: ffdServer
     ports:
       - "8080:8080"
     environment:
@@ -21,6 +27,17 @@ services:
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: 1234
     depends_on:
-      - db
+      db:
+        condition: service_started
+    networks:
+      - ffd-net
+
+networks:
+  ffd-net:
+    driver: bridge
+
 volumes:
   db-data:
+    driver: local
+  ffd_images:
+    driver: local
