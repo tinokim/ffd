@@ -1,30 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ffd.mapper.UserMapper">
 
-    <select id="selectUserBySeq" resultType="com.ffd.model.User">
-        SELECT * FROM users WHERE user_seq = #{userSeq}
-    </select>
-
-    <select id="selectAllUsers" resultType="com.ffd.model.User">
-        SELECT * FROM users
-    </select>
-
-    <insert id="insertUser">
-        INSERT INTO users (id, pw, name, remarks, address, phone, role, user_insert_date, user_update_date)
-        VALUES (#{id}, #{pw}, #{name}, #{remarks}, #{address}, #{phone}, #{role}, #{userInsertDate}, #{userUpdateDate})
+    <insert id="insertUser" parameterType="com.ffd.model.User">
+        INSERT INTO users (id, pw, name, address, phone, role, email, user_insert_date, user_update_date)
+        VALUES (#{id}, #{pw}, #{name}, #{address}, #{phone}, #{role}, #{email}, #{userInsertDate}, #{userUpdateDate})
     </insert>
 
-    <update id="updateUser">
-        UPDATE users
-        SET id = #{id}, pw = #{pw}, name = #{name}, remarks = #{remarks}, address = #{address},
-        phone = #{phone}, role = #{role}, user_insert_date = #{userInsertDate}, user_update_date = #{userUpdateDate}
-        WHERE user_seq = #{userSeq}
-    </update>
+    <select id="findByEmail" resultType="com.ffd.model.User">
+        SELECT * FROM users WHERE email = #{email}
+    </select>
 
-    <delete id="deleteUser">
-        DELETE FROM users WHERE user_seq = #{userSeq}
-    </delete>
+    <update id="updateUserPassword">
+        UPDATE users SET pw = #{newPassword} WHERE user_seq = #{userSeq}
+    </update>
 
 </mapper>

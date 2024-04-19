@@ -11,6 +11,16 @@ public class User {
     private String address;
     private Long phone;
     private String role;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private String email;
     private Date userInsertDate;
     private Date userUpdateDate;
 
@@ -95,4 +105,5 @@ public class User {
     public void setUserUpdateDate(Date userUpdateDate) {
         this.userUpdateDate = userUpdateDate;
     }
+
 }
