@@ -1,4 +1,4 @@
-package com.example.ffd;
+package com.ffd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
