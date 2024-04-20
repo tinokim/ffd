@@ -1,4 +1,4 @@
-package com.ffd.service;
+package com.ffd.api.service;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

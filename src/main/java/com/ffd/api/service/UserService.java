@@ -1,9 +1,9 @@
-package com.ffd.service;
+package com.ffd.api.service;
 
-import com.ffd.model.User;
+import com.ffd.api.model.User;
 
 public interface UserService {
     void signUp(User user);
-    User login(String email, String password);
+    String login(String email, String password);
     void updatePassword(String email, String currentPassword, String newPassword);
 }
