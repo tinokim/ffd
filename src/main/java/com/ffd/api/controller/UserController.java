@@ -2,12 +2,9 @@ package com.ffd.api.controller;
 
 import com.ffd.api.model.User;
 import com.ffd.api.service.UserService;
-import jdk.jfr.Description;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,6 +36,17 @@ public class UserController {
             return ResponseEntity.ok(token);
         }
         throw new AuthenticationCredentialsNotFoundException("아이디 혹은 비밀번호가 틀렸습니다.");
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(HttpServletRequest request) {
+        String authorizationHeader = request.getHeader("Authorization");
+        if (authorizationHeader != null && !authorizationHeader.isEmpty()) {
+            String token = authorizationHeader.substring("Bearer ".length());
+            userService.logout(token);
+            return ResponseEntity.ok("로그아웃 되었습니다.");
+        }
+        return ResponseEntity.badRequest().body("로그아웃 실패.");
     }
 
     @PutMapping("/update-password")

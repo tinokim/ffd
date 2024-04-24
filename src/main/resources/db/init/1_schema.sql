@@ -36,6 +36,7 @@ CREATE TABLE "user" (
 	created_date date NOT NULL,
 	last_modified_date date NOT NULL,
 	email varchar NULL,
+	emil_chk varchar NULL,
 	CONSTRAINT users_address_key UNIQUE (address),
 	CONSTRAINT users_id_key UNIQUE (id),
 	CONSTRAINT users_phone_key UNIQUE (phone),

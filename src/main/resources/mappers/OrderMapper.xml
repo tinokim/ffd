@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ffd.api.mapper.OrderMapper">
+
+    <insert id="insertOrder" parameterType="com.ffd.api.model.Order">
+        INSERT INTO "order" (
+            email,
+            pw,
+            name,
+            address,
+            phone,
+            role,
+            remarks,
+            created_date,
+            last_modified_date
+        )
+        VALUES (
+            #{order.email, typeHandler=com.ffd.common.handler.AesTypeHandler},
+            #{order.pw},
+            #{order.name, typeHandler=com.ffd.common.handler.AesTypeHandler},
+            #{order.address},
+            #{order.phone, typeHandler=com.ffd.common.handler.AesTypeHandler},
+            #{order.role},
+            #{order.remarks},
+            now(),
+            now()
+        )
+    </insert>
+
+    <resultMap type="com.ffd.api.model.Order" id="OrderMap">
+        <result property="index" column="index"/>
+        <result property="email" column="email" typeHandler="com.ffd.common.handler.AesTypeHandler"/>
+        <result property="pw" column="pw"/>
+        <result property="name" column="name" typeHandler="com.ffd.common.handler.AesTypeHandler"/>
+        <result property="address" column="address"/>
+        <result property="phone" column="phone" typeHandler="com.ffd.common.handler.AesTypeHandler"/>
+        <result property="role" column="role"/>
+        <result property="remarks" column="remarks"/>
+        <result property="createdDate" column="created_date"/>
+        <result property="lastModifiedDate" column="last_modified_date"/>
+    </resultMap>
+
+    <select id="findByEmail" resultType="OrderMap">
+        SELECT * FROM "order" WHERE email = #{email}
+    </select>
+
+    <update id="updateOrderPassword">
+        UPDATE "order" SET pw = #{newPassword} WHERE index = #{orderSeq}
+    </update>
+
+</mapper>

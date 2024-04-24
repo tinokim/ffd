@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.ffd.api.mapper.UserMapper;
 import com.ffd.api.model.User;
+
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -21,6 +22,8 @@ public class UserServiceImpl implements UserService {
 
     private final JwtUtil jwtUtil;
 
+    private final TokenBlacklistService tokenBlacklistService;
+
     private final PasswordEncoder encoder;
 
     @Override
@@ -30,6 +33,12 @@ public class UserServiceImpl implements UserService {
         user.setEmail(user.getEmail());
         user.setAddress(user.getAddress());
         userMapper.insertUser(user);
+    }
+
+    @Override
+    public User findEmail(String email) {
+        User user = userMapper.findByEmail(email);
+        return user;
     }
 
     @Override
@@ -48,6 +57,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void logout(String token) {
+        // 토큰 무효화 로직
+        tokenBlacklistService.blacklistToken(token);
+    }
+
+    @Override
     public void updatePassword(String id, String currentPassword, String newPassword) {
         User user = userMapper.findByEmail(id);
         if (user != null && encoder.matches(currentPassword, user.getPw())) {
@@ -55,5 +70,4 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    // 기타 필요한 메소드 구현...
 }
