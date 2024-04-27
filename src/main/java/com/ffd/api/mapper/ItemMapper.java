@@ -1,14 +1,15 @@
 package com.ffd.api.mapper;
 
 import com.ffd.api.model.Item;
-import com.ffd.api.model.User;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 @Mapper
 public interface ItemMapper {
 
-    Item findList();
+    List<Item> findList();
 
-    Item findDetail();
+    Item findDetail(Long index);
 
 }

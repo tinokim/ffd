@@ -2,6 +2,7 @@ package com.ffd.common.security.details;
 
 import com.ffd.api.mapper.UserMapper;
 import com.ffd.api.model.User;
+import com.ffd.common.util.AesUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,7 +19,13 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-        User user = userMapper.findByEmail(id);
+        AesUtil aesUtil = new AesUtil();
+        User user = null;
+        try {
+            user = userMapper.findByEmail(aesUtil.encrypt(id));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         if (user == null) throw new UsernameNotFoundException("해당하는 유저가 없습니다.");
 

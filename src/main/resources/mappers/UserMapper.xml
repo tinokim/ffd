@@ -27,7 +27,7 @@
         )
     </insert>
 
-    <resultMap type="com.ffd.api.model.User" id="UserMap">
+    <resultMap type="com.ffd.api.model.User" id="userMap">
         <result property="index" column="index"/>
         <result property="email" column="email" typeHandler="com.ffd.common.handler.AesTypeHandler"/>
         <result property="pw" column="pw"/>
@@ -40,7 +40,7 @@
         <result property="lastModifiedDate" column="last_modified_date"/>
     </resultMap>
 
-    <select id="findByEmail" resultMap="UserMap">
+    <select id="findByEmail" resultMap="userMap">
         SELECT * FROM "user" WHERE email = #{email}
     </select>
 

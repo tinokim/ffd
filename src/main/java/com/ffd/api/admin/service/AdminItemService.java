@@ -1,12 +1,11 @@
-package com.ffd.api.service;
+package com.ffd.api.admin.service;
 
 
 import com.ffd.api.model.Item;
-import com.ffd.api.model.User;
 
 import java.util.List;
 
-public interface ItemService {
+public interface    AdminItemService {
 
     List<Item> list();
 

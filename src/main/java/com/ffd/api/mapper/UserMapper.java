@@ -3,7 +3,6 @@ package com.ffd.api.mapper;
 import com.ffd.api.model.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 @Mapper
 public interface UserMapper {

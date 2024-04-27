@@ -1,10 +1,10 @@
-package com.ffd.api.service;
+package com.ffd.api.admin.service;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EncryptionService {
+public class AdminEncryptionService {
 
     private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 

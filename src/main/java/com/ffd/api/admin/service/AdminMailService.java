@@ -1,4 +1,4 @@
-package com.ffd.api.service;
+package com.ffd.api.admin.service;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class MailService {
+public class AdminMailService {
 
     private final JavaMailSender javaMailSender;
     private static final String senderEmail= "qjzjsldj@gmail.com";

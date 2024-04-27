@@ -1,4 +1,4 @@
-package com.ffd.api.service.impl;
+package com.ffd.api.admin.service.impl;
 
 import org.springframework.stereotype.Service;
 import java.util.Set;

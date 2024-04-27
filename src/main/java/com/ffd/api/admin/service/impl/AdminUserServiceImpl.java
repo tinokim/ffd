@@ -1,22 +1,20 @@
-package com.ffd.api.service.impl;
+package com.ffd.api.admin.service.impl;
 
-import com.ffd.api.service.UserService;
+import com.ffd.api.admin.service.AdminUserService;
+import com.ffd.common.security.role.Role;
+import com.ffd.common.util.AesUtil;
 import com.ffd.common.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.ffd.api.mapper.UserMapper;
 import com.ffd.api.model.User;
 
-import org.springframework.transaction.annotation.Transactional;
-
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserService {
+public class AdminUserServiceImpl implements AdminUserService {
 
     private final UserMapper userMapper;
 
@@ -32,34 +30,8 @@ public class UserServiceImpl implements UserService {
         user.setName(user.getName());
         user.setEmail(user.getEmail());
         user.setAddress(user.getAddress());
+        user.setRole(Role.ADMIN.name());
         userMapper.insertUser(user);
-    }
-
-    @Override
-    public User findEmail(String email) {
-        User user = userMapper.findByEmail(email);
-        return user;
-    }
-
-    @Override
-    public String login(String email, String password) {
-        User user = userMapper.findByEmail(email);
-        if(user == null) {
-            throw new UsernameNotFoundException("이메일이 존재하지 않습니다.");
-        }
-
-        // 암호화된 password를 디코딩한 값과 입력한 패스워드 값이 다르면 null 반환
-        if(!encoder.matches(password, user.getPw())) {
-            throw new BadCredentialsException("비밀번호가 일치하지 않습니다.");
-        }
-
-        return jwtUtil.createAccessToken(user);
-    }
-
-    @Override
-    public void logout(String token) {
-        // 토큰 무효화 로직
-        tokenBlacklistService.blacklistToken(token);
     }
 
     @Override
