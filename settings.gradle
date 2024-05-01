@@ -1,1 +1,4 @@
 rootProject.name = 'ffd'
+include 'ffd-item'
+include 'ffd-order'
+include 'ffd-user'

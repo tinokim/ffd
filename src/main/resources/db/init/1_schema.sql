@@ -73,6 +73,7 @@ CREATE TABLE "order" (
 	"name" varchar(255) NOT NULL,
 	price int8 NOT NULL,
 	stock int8 NOT NULL,
+	"status" varchar(255) NOT NULL,
 	user_index int8 NOT NULL,
 	created_date timestamp NOT NULL,
 	last_modified_date timestamp NOT NULL,
