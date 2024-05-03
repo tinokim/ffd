@@ -1,4 +1,7 @@
 rootProject.name = 'ffd'
+include 'api-gateway'
 include 'ffd-item'
 include 'ffd-order'
 include 'ffd-user'
+include 'test'
+

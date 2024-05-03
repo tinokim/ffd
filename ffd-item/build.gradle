@@ -21,12 +21,6 @@ configurations {
 	}
 }
 
-dependencyManagement {
-	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:2023.0.1" // Spring Boot 3.2.4와 호환되는 올바른 Spring Cloud 버전 사용
-	}
-}
-
 dependencies {
 //	스프링 설정
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -38,12 +32,6 @@ dependencies {
 //  보안
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.security:spring-security-crypto'
-
-//	config서버 연동
-	implementation 'org.springframework.cloud:spring-cloud-config-server:4.1.1'
-	implementation 'org.springframework.cloud:spring-cloud-starter-config'
-	implementation 'org.springframework.cloud:spring-cloud-starter-config'
-
 
 //	DB(postgresql)
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
