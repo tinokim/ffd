@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ffd.orderservice.api.mapper.OrderMapper">
+
+    <select id="findOrdersByUserId" resultType="com.ffd.orderservice.api.model.Order">
+        SELECT * FROM orders WHERE user_index = #{userId}
+    </select>
+
+    <insert id="createOrder" parameterType="com.ffd.orderservice.api.model.Order">
+        INSERT INTO public."order"(
+          "name"
+        , price
+        , stock
+        , user_index
+        , created_date
+        , last_modified_date
+        , item_index
+        , status
+        )VALUES(
+        #{order.name},
+        #{order.price},
+        #{order.sock},
+        #{order.user_index},
+        now(),
+        now(),
+        #{order.item_index},
+        #{order.status},
+        );
+    </insert>
+
+    <update id="updateOrderStatus">
+        UPDATE orders
+        SET status = #{status}, last_modified_date = now()
+        WHERE index = #{orderId}
+    </update>
+
+</mapper>

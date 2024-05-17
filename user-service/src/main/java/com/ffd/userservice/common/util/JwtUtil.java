@@ -1,6 +1,6 @@
 package com.ffd.userservice.common.util;
 
-import com.ffd.api.model.User;
+import com.ffd.userservice.api.model.User;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;

@@ -1,7 +1,6 @@
 package com.ffd.userservice.api.admin.controller;
 
-import com.ffd.api.admin.service.AdminLoginService;
-import com.ffd.api.admin.service.AdminUserService;
+import com.ffd.userservice.api.admin.service.AdminLoginService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;

@@ -1,8 +1,8 @@
 package com.ffd.userservice.common.config;
 
-import com.ffd.common.security.details.CustomUserDetailsService;
-import com.ffd.common.security.filter.JwtAuthFilter;
-import com.ffd.common.util.JwtUtil;
+import com.ffd.userservice.common.security.details.CustomUserDetailsService;
+import com.ffd.userservice.common.security.filter.JwtAuthFilter;
+import com.ffd.userservice.common.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

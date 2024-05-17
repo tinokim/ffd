@@ -1,6 +1,6 @@
 package com.ffd.userservice.common.security.details;
 
-import com.ffd.api.model.User;
+import com.ffd.userservice.api.model.User;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

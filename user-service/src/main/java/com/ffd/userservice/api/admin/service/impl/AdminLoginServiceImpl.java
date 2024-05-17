@@ -1,11 +1,10 @@
 package com.ffd.userservice.api.admin.service.impl;
 
-import com.ffd.api.admin.service.AdminLoginService;
-import com.ffd.api.admin.service.AdminUserService;
-import com.ffd.api.mapper.UserMapper;
-import com.ffd.api.model.User;
-import com.ffd.common.util.AesUtil;
-import com.ffd.common.util.JwtUtil;
+import com.ffd.userservice.api.admin.service.AdminLoginService;
+import com.ffd.userservice.api.mapper.UserMapper;
+import com.ffd.userservice.api.model.User;
+import com.ffd.userservice.common.util.AesUtil;
+import com.ffd.userservice.common.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

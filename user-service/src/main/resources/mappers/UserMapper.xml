@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ffd.api.mapper.UserMapper">
+<mapper namespace="com.ffd.userservice.api.mapper.UserMapper">
 
-    <insert id="insertUser" parameterType="com.ffd.api.model.User">
+    <insert id="insertUser" parameterType="com.ffd.userservice.api.model.User">
         INSERT INTO "user" (
             email,
             pw,
@@ -15,11 +15,11 @@
             last_modified_date
         )
         VALUES (
-            #{user.email, typeHandler=com.ffd.common.handler.AesTypeHandler},
+            #{user.email, typeHandler=com.ffd.userservice.common.handler.AesTypeHandler},
             #{user.pw},
-            #{user.name, typeHandler=com.ffd.common.handler.AesTypeHandler},
+            #{user.name, typeHandler=com.ffd.userservice.common.handler.AesTypeHandler},
             #{user.address},
-            #{user.phone, typeHandler=com.ffd.common.handler.AesTypeHandler},
+            #{user.phone, typeHandler=com.ffd.userservice.common.handler.AesTypeHandler},
             #{user.role},
             #{user.remarks},
             now(),
@@ -27,13 +27,13 @@
         )
     </insert>
 
-    <resultMap type="com.ffd.api.model.User" id="userMap">
+    <resultMap type="com.ffd.userservice.api.model.User" id="userMap">
         <result property="index" column="index"/>
-        <result property="email" column="email" typeHandler="com.ffd.common.handler.AesTypeHandler"/>
+        <result property="email" column="email" typeHandler="com.ffd.userservice.common.handler.AesTypeHandler"/>
         <result property="pw" column="pw"/>
-        <result property="name" column="name" typeHandler="com.ffd.common.handler.AesTypeHandler"/>
+        <result property="name" column="name" typeHandler="com.ffd.userservice.common.handler.AesTypeHandler"/>
         <result property="address" column="address"/>
-        <result property="phone" column="phone" typeHandler="com.ffd.common.handler.AesTypeHandler"/>
+        <result property="phone" column="phone" typeHandler="com.ffd.userservice.common.handler.AesTypeHandler"/>
         <result property="role" column="role"/>
         <result property="remarks" column="remarks"/>
         <result property="createdDate" column="created_date"/>

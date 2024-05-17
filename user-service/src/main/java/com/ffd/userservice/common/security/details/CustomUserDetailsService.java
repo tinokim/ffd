@@ -1,8 +1,8 @@
 package com.ffd.userservice.common.security.details;
 
-import com.ffd.api.mapper.UserMapper;
-import com.ffd.api.model.User;
-import com.ffd.common.util.AesUtil;
+import com.ffd.userservice.api.mapper.UserMapper;
+import com.ffd.userservice.api.model.User;
+import com.ffd.userservice.common.util.AesUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

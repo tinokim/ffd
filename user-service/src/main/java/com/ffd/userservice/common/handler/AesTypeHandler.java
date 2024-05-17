@@ -1,6 +1,6 @@
 package com.ffd.userservice.common.handler;
 
-import com.ffd.common.util.AesUtil;
+import com.ffd.userservice.common.util.AesUtil;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.TypeHandler;
 

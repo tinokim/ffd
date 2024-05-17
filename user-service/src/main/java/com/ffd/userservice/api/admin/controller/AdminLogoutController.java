@@ -1,7 +1,6 @@
 package com.ffd.userservice.api.admin.controller;
 
-import com.ffd.api.admin.service.AdminLogoutService;
-import com.ffd.api.admin.service.AdminUserService;
+import com.ffd.userservice.api.admin.service.AdminLogoutService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

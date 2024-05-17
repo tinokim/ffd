@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
 @SpringBootApplication
-@MapperScan("com.ffd.api.mapper")
+//@MapperScan("com.ffd.api.mapper")
 @EnableConfigServer
 //@EnableScheduling
 //@EnableBatchProcessing

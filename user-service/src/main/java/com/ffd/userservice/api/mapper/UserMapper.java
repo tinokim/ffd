@@ -1,6 +1,6 @@
 package com.ffd.userservice.api.mapper;
 
-import com.ffd.api.model.User;
+import com.ffd.userservice.api.model.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

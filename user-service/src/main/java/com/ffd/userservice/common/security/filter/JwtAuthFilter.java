@@ -1,7 +1,7 @@
 package com.ffd.userservice.common.security.filter;
 
-import com.ffd.common.security.details.CustomUserDetailsService;
-import com.ffd.common.util.JwtUtil;
+import com.ffd.userservice.common.security.details.CustomUserDetailsService;
+import com.ffd.userservice.common.util.JwtUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

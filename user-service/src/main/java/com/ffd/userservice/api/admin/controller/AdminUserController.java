@@ -1,7 +1,7 @@
 package com.ffd.userservice.api.admin.controller;
 
-import com.ffd.api.model.User;
-import com.ffd.api.admin.service.AdminUserService;
+import com.ffd.userservice.api.admin.service.AdminUserService;
+import com.ffd.userservice.api.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,6 @@
 package com.ffd.userservice.api.admin.controller;
 
-import com.ffd.api.admin.service.AdminMailService;
+import com.ffd.userservice.api.admin.service.AdminMailService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
