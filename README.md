@@ -8,10 +8,10 @@ ffd는 foot forward의 약자로 첫걸음이라는 뜻입니다.
 마이크로서비스 아키텍처: 서비스 간 독립성과 확장성을 높이기 위해 MSA 패턴을 적용했습니다.   
 도커 컨테이너: 각 서비스를 도커 컨테이너로 구현하여 배포와 운영을 용이하게 했습니다.   
 
-## 기술 스택
-프레임워크: Spring Boot, Spring Cloud
-데이터베이스: PostgreSQL
-컨테이너: Docker
+## 기술 스택   
+프레임워크: Spring Boot, Spring Cloud   
+데이터베이스: PostgreSQL   
+컨테이너: Docker   
 
 이 프로젝트는 다음과 같은 마이크로서비스로 구성되어 있습니다:
 
