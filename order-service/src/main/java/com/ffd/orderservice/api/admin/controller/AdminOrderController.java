@@ -3,13 +3,12 @@ package com.ffd.orderservice.api.admin.controller;
 import com.ffd.orderservice.api.admin.service.AdminOrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/admin/orders")
 @RequiredArgsConstructor
-@Secured("ROLE_ADMIN")
+//@Secured("ROLE_ADMIN")
 public class AdminOrderController {
 
     private  final AdminOrderService adminOrderService;
