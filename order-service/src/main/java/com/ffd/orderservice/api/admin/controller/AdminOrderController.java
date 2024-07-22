@@ -18,17 +18,20 @@ public class AdminOrderController {
         return ResponseEntity.ok(adminOrderService.getOrdersByUserId(userId));
     }
 
+    // 주문
     @PostMapping("")
     public ResponseEntity<?> postOrder(@RequestParam("userIndex") Long userIndex, @RequestParam("itemIndex") Long itemIndex, @RequestParam("stock") Long stock) {
         adminOrderService.createOrder(userIndex, itemIndex, stock);
         return ResponseEntity.ok(null);
     }
 
+    // 취소
     @PostMapping("/cancel/{orderId}")
     public ResponseEntity<?> cancelOrder(@PathVariable Long orderId) {
         return ResponseEntity.ok(adminOrderService.cancelOrder(orderId));
     }
 
+    // 상세 조회
     @PostMapping("/return/{orderId}")
     public ResponseEntity<?> returnOrder(@PathVariable Long orderId) {
         return ResponseEntity.ok(adminOrderService.returnOrder(orderId));
