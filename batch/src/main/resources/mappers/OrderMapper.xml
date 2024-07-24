@@ -7,7 +7,7 @@
     <update id="updateOrdersToShipping">
         UPDATE orders
         SET status = '배송중'
-        WHERE status = '주문중'
+        WHERE status = '주문완료'
           AND created_date = CURRENT_DATE - 1
     </update>
 

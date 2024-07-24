@@ -16,6 +16,15 @@ services:
     networks:
       - ffd-net
 
+  redis:
+    image: redis:latest
+    container_name: ffdRedis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - ffd-net
+
   app:
     build:
       context: .
@@ -27,8 +36,12 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/ffd
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: 1234
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
     depends_on:
       db:
+        condition: service_started
+      redis:
         condition: service_started
     networks:
       - ffd-net
